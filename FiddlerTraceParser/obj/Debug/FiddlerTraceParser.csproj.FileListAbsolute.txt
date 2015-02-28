@@ -1,0 +1,17 @@
+c:\poc\FiddlerTraceParser\FiddlerTraceParser\bin\Debug\FiddlerTraceParser.exe.config
+c:\poc\FiddlerTraceParser\FiddlerTraceParser\bin\Debug\FiddlerTraceParser.exe
+c:\poc\FiddlerTraceParser\FiddlerTraceParser\bin\Debug\FiddlerTraceParser.pdb
+c:\poc\FiddlerTraceParser\FiddlerTraceParser\obj\Debug\FiddlerTraceParser.exe
+c:\poc\FiddlerTraceParser\FiddlerTraceParser\obj\Debug\FiddlerTraceParser.pdb
+c:\poc\FiddlerTraceParser\FiddlerTraceParser\bin\Debug\HtmlAgilityPack.dll
+c:\poc\FiddlerTraceParser\FiddlerTraceParser\bin\Debug\HtmlAgilityPack.pdb
+c:\poc\FiddlerTraceParser\FiddlerTraceParser\bin\Debug\HtmlAgilityPack.xml
+C:\Users\v-vipink\OneDrive\POC\FiddlerTraceParser\FiddlerTraceParser\bin\Debug\FiddlerTraceParser.exe.config
+C:\Users\v-vipink\OneDrive\POC\FiddlerTraceParser\FiddlerTraceParser\obj\Debug\FiddlerTraceParser.exe
+C:\Users\v-vipink\OneDrive\POC\FiddlerTraceParser\FiddlerTraceParser\obj\Debug\FiddlerTraceParser.pdb
+C:\Users\v-vipink\OneDrive\POC\FiddlerTraceParser\FiddlerTraceParser\bin\Debug\FiddlerTraceParser.exe
+C:\Users\v-vipink\OneDrive\POC\FiddlerTraceParser\FiddlerTraceParser\bin\Debug\FiddlerTraceParser.pdb
+C:\Users\v-vipink\OneDrive\POC\FiddlerTraceParser\FiddlerTraceParser\bin\Debug\HtmlAgilityPack.dll
+C:\Users\v-vipink\OneDrive\POC\FiddlerTraceParser\FiddlerTraceParser\bin\Debug\HtmlAgilityPack.pdb
+C:\Users\v-vipink\OneDrive\POC\FiddlerTraceParser\FiddlerTraceParser\bin\Debug\HtmlAgilityPack.xml
+C:\Users\v-vipink\OneDrive\POC\FiddlerTraceParser\FiddlerTraceParser\obj\Debug\FiddlerTraceParser.csprojResolveAssemblyReference.cache

@@ -1,0 +1,8 @@
+C:\Users\v-vipink\OneDrive\POC\FiddlerTraceParser\FiddlerTraceParser\bin\Release\FiddlerTraceParser.exe.config
+C:\Users\v-vipink\OneDrive\POC\FiddlerTraceParser\FiddlerTraceParser\bin\Release\FiddlerTraceParser.exe
+C:\Users\v-vipink\OneDrive\POC\FiddlerTraceParser\FiddlerTraceParser\bin\Release\FiddlerTraceParser.pdb
+C:\Users\v-vipink\OneDrive\POC\FiddlerTraceParser\FiddlerTraceParser\bin\Release\HtmlAgilityPack.dll
+C:\Users\v-vipink\OneDrive\POC\FiddlerTraceParser\FiddlerTraceParser\bin\Release\HtmlAgilityPack.pdb
+C:\Users\v-vipink\OneDrive\POC\FiddlerTraceParser\FiddlerTraceParser\bin\Release\HtmlAgilityPack.xml
+C:\Users\v-vipink\OneDrive\POC\FiddlerTraceParser\FiddlerTraceParser\obj\Release\FiddlerTraceParser.exe
+C:\Users\v-vipink\OneDrive\POC\FiddlerTraceParser\FiddlerTraceParser\obj\Release\FiddlerTraceParser.pdb
