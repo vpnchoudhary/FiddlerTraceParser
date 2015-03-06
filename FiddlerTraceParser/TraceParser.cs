@@ -44,7 +44,7 @@ namespace FiddlerTraceParser
             //Debugger.Break();
             HtmlWeb web = new HtmlWeb();
             bool startofSession = false;
-            string T1="", T2="", NetworkLetancy=null, adLoadTime=null;
+            string T1="", T2="", NetworkLetancy=null;
             HtmlDocument doc = web.Load(traceDirectory.AbsolutePath + @"\_index.htm");
 
             //determine location of "Host" column
@@ -71,7 +71,7 @@ namespace FiddlerTraceParser
                         HtmlDocument met = web.Load(traceDirectory.AbsolutePath + @"\" + node.ChildNodes[0].ChildNodes[4].Attributes[0].Value);
                         HtmlNode xmlNode = met.DocumentNode.SelectSingleNode("/session/sessiontimers");
                         T1 = xmlNode.Attributes["ClientBeginRequest"].Value;
-                        NetworkLetancy = Convert.ToDateTime(xmlNode.Attributes["ClientDoneResponse"].Value).Subtract(Convert.ToDateTime(T1)).Milliseconds.ToString();
+                        NetworkLetancy = Convert.ToDateTime(xmlNode.Attributes["ClientDoneResponse"].Value).Subtract(Convert.ToDateTime(T1)).TotalSeconds.ToString();
                         
 
                     }
@@ -91,10 +91,10 @@ namespace FiddlerTraceParser
                         DateTime time1 = Convert.ToDateTime(T1);
                         DateTime time2 = Convert.ToDateTime(T2);
                         csvExport.AppendLine(
-                            string.Format("\"{0}\",\"{1}\",\"{2}\",\"{3}\"", T1, NetworkLetancy,
-                            time2.Subtract(time1).Milliseconds, Convert.ToDateTime(xmlNode.Attributes["ClientDoneResponse"].Value).Subtract(time2).Milliseconds));
+                            string.Format("\"{0}\",\"{1}\",\"{2}\",\"{3}\"", time1.ToLongTimeString(), NetworkLetancy,
+                            time2.Subtract(time1).TotalSeconds, Convert.ToDateTime(xmlNode.Attributes["ClientDoneResponse"].Value).Subtract(time2).TotalSeconds));
 
-                        Console.WriteLine("NetworkLetancy: {0}  AdCallStart: {1} AdCallComplete: {2}", NetworkLetancy, time2.Subtract(time1).Milliseconds, Convert.ToDateTime(xmlNode.Attributes["ClientDoneResponse"].Value).Subtract(time2).Milliseconds);
+                        Console.WriteLine("NetworkLetancy: {0}  AdCallStart: {1} AdCallComplete: {2}", NetworkLetancy, time2.Subtract(time1).TotalSeconds, Convert.ToDateTime(xmlNode.Attributes["ClientDoneResponse"].Value).Subtract(time2).TotalSeconds);
                     }
                     
                 }
