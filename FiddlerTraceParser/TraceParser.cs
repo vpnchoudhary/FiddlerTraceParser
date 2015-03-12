@@ -32,7 +32,17 @@ namespace FiddlerTraceParser
             baseUrl = new Uri(args[0], UriKind.Absolute);
             secondUrl = new Uri(args[1], UriKind.Absolute);
             traceDirectory = new Uri(args[2].Replace(".saz", ""), UriKind.RelativeOrAbsolute);
-            System.IO.Compression.ZipFile.ExtractToDirectory(args[2], traceDirectory.AbsolutePath);
+            try
+            {
+                if(Directory.Exists(traceDirectory.AbsolutePath))
+                {
+                    Directory.Delete(traceDirectory.AbsolutePath, true);
+                }
+                System.IO.Compression.ZipFile.ExtractToDirectory(args[2], traceDirectory.AbsolutePath);
+            }catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             //<ToDo>check that traceDirectory is valid and contain _index.html file
             LoadTrace();
         }
@@ -47,22 +57,28 @@ namespace FiddlerTraceParser
             string T1="", T2="", NetworkLetancy=null;
             HtmlDocument doc = web.Load(traceDirectory.AbsolutePath + @"\_index.htm");
 
-            //determine location of "Host" column
+            //determine location of "Host" & URL columns of Fiddler
             int indexHost = 0;
+            int indexURL = 0;
+            int i = 0;
             foreach (HtmlNode nd in doc.DocumentNode.SelectNodes("//html/body/table/thead/tr/th"))
             {
                 if(nd.InnerText == "Host")
                 {
-                    break;
+                    indexHost = i;
                 }
-                indexHost++;
+                else if(nd.InnerText == "URL")
+                {
+                    indexURL = i;
+                }
+                i++;
             }
             foreach(HtmlNode node in doc.DocumentNode.SelectNodes("//html/body/table/tbody/tr"))
             {
                 //find session
                 if (!startofSession)
                 {
-                    if (node.ChildNodes[indexHost].InnerText == baseUrl.Host)
+                    if (node.ChildNodes[indexHost].InnerText.Equals(baseUrl.Host, StringComparison.CurrentCultureIgnoreCase) && node.ChildNodes[indexURL].InnerText.Equals(baseUrl.PathAndQuery, StringComparison.CurrentCultureIgnoreCase))
                     {
                         startofSession = true;
                         Console.WriteLine("start of session: " + node.ChildNodes[4].InnerText);
@@ -78,9 +94,7 @@ namespace FiddlerTraceParser
                 }
                 else
                 {
-                    //ALERT: (specific condition):-> node.ChildNodes[indexHost + 1].InnerText.Contains("ADPT12")
-                    // the second url with contain ADPT12 for MSN.com ad url testing
-                    if (node.ChildNodes[indexHost].InnerText == secondUrl.Host && node.ChildNodes[indexHost + 1].InnerText.Contains("ADPT12"))
+                    if (node.ChildNodes[indexHost].InnerText.Equals(secondUrl.Host, StringComparison.CurrentCultureIgnoreCase) && node.ChildNodes[indexURL].InnerText.ToLower().Contains(secondUrl.PathAndQuery.ToLower()))
                     {
                         startofSession = false;
                         Console.WriteLine("Ads url " + node.ChildNodes[4].InnerText);
